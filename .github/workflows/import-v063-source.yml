@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '_upload/source.b64.*'
-      - '.github/workflows/import-v063-source.yml'
+      - '_upload/source.b64.10'
 
 permissions:
   contents: write
