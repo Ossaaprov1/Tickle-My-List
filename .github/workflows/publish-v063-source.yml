@@ -3,13 +3,14 @@ name: Publish v0.6.3 source
 on:
   push:
     branches: [main]
+    paths:
+      - '.publish-v063'
 
 permissions:
   contents: write
 
 jobs:
   publish:
-    if: github.event.head_commit.message == 'chore: trigger v0.6.3 source publish'
     runs-on: ubuntu-latest
     steps:
       - name: Check out full history
@@ -46,6 +47,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf _upload _stage _bootstrap
+          rm -f .publish-v063
           rm -f .github/workflows/publish-v063-source.yml
           rmdir .github/workflows 2>/dev/null || true
           rmdir .github 2>/dev/null || true
